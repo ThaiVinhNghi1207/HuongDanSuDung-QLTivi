@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hướng Dẫn Sử Dụng - Quản Lý Cửa Hàng Tivi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --sidebar-bg: #1e293b;
+            --text-main: #334155;
+            --bg-body: #f1f5f9;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            display: flex; 
+            color: var(--text-main); 
+            background-color: var(--bg-body);
+        }
+
+        /* Tùy chỉnh thanh cuộn (Scrollbar) */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* Cột Menu bên trái */
+        .sidebar { 
+            width: 260px; 
+            background-color: var(--sidebar-bg); 
+            color: white; 
+            height: 100vh; 
+            padding: 20px 0; 
+            position: fixed; 
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            overflow-y: auto;
+        }
+        .sidebar h2 { 
+            font-size: 16px; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #94a3b8;
+            border-bottom: 1px solid #334155; 
+            padding: 0 25px 15px; 
+            margin-bottom: 10px;
+        }
+        .sidebar ul { list-style: none; padding: 0; margin: 0; }
+        .sidebar ul li a { 
+            display: block;
+            color: #cbd5e1; 
+            text-decoration: none; 
+            font-size: 15px; 
+            padding: 12px 25px;
+            transition: all 0.2s;
+            border-left: 3px solid transparent;
+        }
+        .sidebar ul li a:hover { 
+            color: white; 
+            background-color: #334155; 
+            border-left: 3px solid var(--primary);
+        }
+        
+        /* Cột Nội dung bên phải */
+        .content-wrapper { 
+            margin-left: 260px; 
+            padding: 40px; 
+            width: 100%; 
+            display: flex;
+            justify-content: center;
+        }
+        .content { 
+            background: white;
+            padding: 40px 50px; 
+            width: 100%; 
+            max-width: 850px; 
+            line-height: 1.7; 
+            border-radius: 10px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        h1 { 
+            color: var(--sidebar-bg); 
+            font-size: 32px;
+            margin-top: 0;
+            border-bottom: 3px solid var(--primary); 
+            padding-bottom: 15px; 
+            display: inline-block;
+        }
+        h3 { 
+            color: var(--primary); 
+            margin-top: 40px; 
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .step-box { 
+            background-color: #f8fafc; 
+            border-left: 4px solid var(--primary); 
+            padding: 20px; 
+            margin-bottom: 25px; 
+            border-radius: 0 8px 8px 0;
+        }
+        .step-box p { margin: 10px 0; }
+        
+        /* Bọc các nút bấm trong text cho giống phần mềm */
+        .btn-tag {
+            background-color: var(--primary);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            display: inline-block;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .btn-tag.danger { background-color: #ef4444; }
+        .btn-tag.success { background-color: #10b981; }
+
+        .note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #b45309;
+        }
+
+        img { 
+            max-width: 100%; 
+            border: 1px solid #e2e8f0; 
+            border-radius: 6px; 
+            margin: 15px 0; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>MỤC LỤC</h2>
+        <ul>
+            <li><a href="#tong-quan">1. Tổng quan hệ thống</a></li>
+            <li><a href="#dang-nhap">2. Đăng nhập hệ thống</a></li>
+            <li><a href="#san-pham">3. Quản lý Sản phẩm (Tivi)</a></li>
+            <li><a href="#khach-hang">4. Quản lý Khách hàng</a></li>
+            <li><a href="#hoa-don">5. Lập và In Hóa đơn</a></li>
+            <li><a href="#thong-ke">6. Thống kê & Báo cáo</a></li>
+        </ul>
+    </div>
+
+    <div class="content-wrapper">
+        <div class="content">
+            <h1>TÀI LIỆU HƯỚNG DẪN SỬ DỤNG</h1>
+            <p>Chào mừng bạn đến với hệ thống phần mềm <strong>Quản Lý Cửa Hàng Tivi</strong>. Tài liệu này cung cấp hướng dẫn chi tiết từng bước giúp bạn thao tác trên phần mềm một cách nhanh chóng và chính xác nhất.</p>
+
+            <h3 id="tong-quan">1. Tổng quan hệ thống</h3>
+            <p>Phần mềm được thiết kế với giao diện trực quan, hỗ trợ cửa hàng điện máy thực hiện các nghiệp vụ: theo dõi danh sách Tivi, quản lý thông tin khách hàng, thực hiện giao dịch bán hàng, in biên lai và thống kê doanh thu theo thời gian thực.</p>
+
+            <h3 id="dang-nhap">2. Đăng nhập hệ thống</h3>
+            <div class="step-box">
+                <p><strong>Bước 1:</strong> Khởi động phần mềm từ màn hình Desktop.</p>
+                <p><strong>Bước 2:</strong> Tại màn hình đăng nhập, nhập chính xác <b>Tên đăng nhập</b> và <b>Mật khẩu</b> do quản trị viên cung cấp.</p>
+                <p><strong>Bước 3:</strong> Nhấn nút <span class="btn-tag">Đăng nhập</span> hoặc nhấn phím <b>Enter</b> để truy cập vào Màn hình chính (Trang chủ).</p>
+               <img src="hinh-dang-nhap.png" alt="Màn hình đăng nhập">
+			   <div class="note">
+                    <strong>Lưu ý:</strong> Nếu nhập sai tài khoản quá 3 lần, hệ thống sẽ yêu cầu bạn liên hệ Admin để cấp lại mật khẩu. Nhấn nút <span class="btn-tag danger">Thoát</span> nếu muốn đóng phần mềm.
+                </div>
+            </div>
+
+            <h3 id="san-pham">3. Quản lý Sản phẩm (Tivi)</h3>
+            <p>Khu vực này giúp bạn theo dõi toàn bộ các dòng Tivi đang bán tại cửa hàng và số lượng tồn kho.</p>
+            <div class="step-box">
+                <p><strong>Thêm mới Tivi:</strong> Điền đầy đủ thông tin vào các ô trống (Tên Tivi, Hãng sản xuất, Số lượng, Đơn giá nhập, Đơn giá bán...) sau đó nhấn nút <span class="btn-tag success">Thêm</span>.</p>
+                <p><strong>Chỉnh sửa thông tin:</strong> Click đúp chuột vào một dòng Tivi trên danh sách. Thông tin sẽ hiện lên các ô nhập liệu. Sửa đổi thông tin cần thiết và nhấn <span class="btn-tag">Lưu</span>.</p>
+                <p><strong>Xóa sản phẩm:</strong> Chọn sản phẩm muốn xóa, nhấn nút <span class="btn-tag danger">Xóa</span> và xác nhận có.</p>
+                <p><strong>Xuất file Excel:</strong> Nhấn nút <span class="btn-tag success">Xuất Excel</span> để lưu toàn bộ danh sách kho hàng ra file .xlsx trên máy tính của bạn.</p>
+            <img src="hinh-tivi.png" alt="Màn hình sản phẩm">
+			</div>
+
+            <h3 id="khach-hang">4. Quản lý Khách hàng</h3>
+            <div class="step-box">
+                <p>Giống như Quản lý Sản phẩm, bạn có thể lưu trữ thông tin Khách hàng (Họ tên, Số điện thoại, Địa chỉ) để tiện cho việc chăm sóc và lập hóa đơn sau này.</p>
+                <p>Sử dụng thanh <b>Tìm kiếm</b> ở góc trên cùng để tra cứu nhanh khách hàng theo Số điện thoại.</p>
+            <img src="hinh-khach.png" alt="Màn hình khách hàng">
+			</div>
+
+            <h3 id="hoa-don">5. Lập và In Hóa đơn</h3>
+            <p>Đây là chức năng quan trọng nhất khi khách hàng tiến hành thanh toán mua Tivi.</p>
+            <div class="step-box">
+                <p><strong>Bước 1 - Chọn Khách hàng:</strong> Chọn thông tin khách hàng từ danh sách xổ xuống hoặc thêm nhanh khách hàng mới.</p>
+                <p><strong>Bước 2 - Chọn Sản phẩm:</strong> Chọn các mẫu Tivi khách mua, nhập số lượng. Phần mềm sẽ tự động tính thành tiền dựa trên đơn giá.</p>
+                <p><strong>Bước 3 - Thanh toán:</strong> Kiểm tra lại Tổng tiền. Nhấn nút <span class="btn-tag success">Lưu Hóa Đơn</span>.</p>
+                <p><strong>Bước 4 - In biên lai:</strong> Chọn hóa đơn vừa tạo, nhấn nút <span class="btn-tag">In Hóa Đơn</span>. Giao diện Report sẽ bật lên hiển thị chi tiết hóa đơn (thông tin cửa hàng, khách hàng, danh sách tivi đã mua). Nhấn biểu tượng máy in góc trên bên trái để in ra giấy.</p>
+            <img src="hinh-laphd.png" alt="Màn hình Lập hoá đơn">
+			
+			<img src="hinh-inhd.png" alt="Màn hình In hoá đơn">
+			</div>
+
+            <h3 id="thong-ke">6. Thống kê & Báo cáo</h3>
+            <div class="step-box">
+                <p><strong>Báo cáo doanh thu:</strong> Chọn mốc thời gian (Từ ngày - Đến ngày) sau đó nhấn nút <span class="btn-tag">Xem báo cáo</span>. Phần mềm sẽ tính toán tổng số tiền bán được trong khoảng thời gian đó.</p>
+                <img src="hinh-doanhthu.png" alt="Màn hình thống kê doanh thu">
+				<p><strong>Biểu đồ trực quan:</strong> Quan sát biểu đồ để biết được dòng Tivi nào (Sony, Samsung, LG...) đang bán chạy nhất trong tháng.</p>
+				<img src="hinh-sanpham.png" alt="Màn hình thống kê sản phẩm">
+			</div>
+            
+        </div>
+    </div>
+
+</body>
+</html>
